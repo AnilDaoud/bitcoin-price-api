@@ -100,7 +100,7 @@ class Exchange_WebSocket(object):
             self.exit()
             return
 
-    def __on_error(self, ws, error):
+    def __on_error(self, error):
         if not self.exited:
             self.error(error)
 
@@ -113,7 +113,7 @@ class Exchange_WebSocket(object):
         nonce = self.generate_nonce()
         return ["api-nonce: " + str(nonce), "api-signature: " + self.generate_signature(self.secret, 'GET', '/realtime', nonce, ''), "api-key: " + self.key]
 
-    def __on_message(self, ws, message):
+    def __on_message(self, message):
         message = json.loads(message)
         self.logger.debug(json.dumps(message))
 
@@ -172,11 +172,11 @@ class Exchange_WebSocket(object):
         except:
             self.logger.error(traceback.format_exc())
 
-    def __on_close(self, ws):
+    def __on_close(self):
         self.logger.info("Websocket Closed")
         self.exit()
 
-    def __on_open(self, ws):
+    def __on_open(self):
         self.logger.debug("Websocket Opened")
 
     def generate_nonce(self):

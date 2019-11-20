@@ -12,6 +12,7 @@ from exchanges.hitbtc import HitBTC
 from exchanges.kraken import Kraken
 from exchanges.liqui import Liqui
 from exchanges.okcoin import OKCoin
+from exchanges.okex import OKEx
 from exchanges.poloniex import Poloniex
 
 exchange_list = {
@@ -32,7 +33,8 @@ exchange_list = {
 }
 
 fut_exchange_list = {
-    'bitmex' : BitMEX
+    'bitmex' : BitMEX,
+    'okex' : OKEx
 }
 
 def get_exchange(s, *args, **kwargs):
