@@ -7,7 +7,7 @@ from setuptools import (
 
 setup(
     name='cryptocurrency-price-api',
-    version='0.4',
+    version='0.5',
     author='Anil Daoud',
     author_email='anil+git@via.ecp.fr',
     url='https://github.com/AnilDaoud/cryptocurrency-price-api',
